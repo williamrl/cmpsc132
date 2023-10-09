@@ -1,3 +1,5 @@
+Allen Downey - Search
+
 Sorting Algorithms / Searching
 ==============================
 -Linear Sorts
