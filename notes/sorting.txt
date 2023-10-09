@@ -1,0 +1,35 @@
+Sorting Algorithms / Searching
+==============================
+-Linear Sorts
+list = HAMBURGER
+       0       8
+find(U):Bool
+
+0(n) min 1 max n
+
+  u ? h
+<-- <  
+    < -->
+    MRRU
+     ^
+     u?r
+       r,u
+
+1.6m ssn                0(logn)
+find(199239192)
+1.6m-max,min 0          bisect
+800k                    max 22
+400k                    min 0
+200k
+100k
+50k
+25k
+12.5k
+6250
+3125
+1662
+831
+415
+207
+103
+...

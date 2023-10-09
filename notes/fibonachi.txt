@@ -1,0 +1,17 @@
+1,1,2,3,5,8,13,21,34,55,89
+0 1 2 3 <-index
+F3 = 3 = 2+1
+       =F2+F1
+f0 = f9 + f8 -> (Fn = Fn-1 + Fn-2)<-recursive function
+f0 = f1 = 1 <- base case
+
+F5 calls on f4 and F3
+f4 calls on f3 and f2 - f3 calls on f2 and f1 - f2 calls on f1 and f0 
+f3 calls on f2 and f1 - f2 calls on f1 and f0
+build the function calls recursively then build back up 
+
+def fib(n):
+    if n == 1 or n == 0: -> base case
+    return 1
+    else:
+    return fib(n-1) + fib(n-2)
