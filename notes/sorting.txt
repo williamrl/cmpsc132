@@ -35,3 +35,21 @@ find(199239192)
 207
 103
 ...
+==============================================================================================
+Bubble Sort
+
+
+7,2,1,9,2,1,5 unsorted
+1-1-2-2-5-7-9 sorted
+
+if current > next:
+  swap(current, next)
+
+2, 7, 1 ^iterates and swaps each number position if current is greater than next
+
+else:
+  current = next
+
+^pushes us past nodes that current is not greater than next
+
+next = current.get_next()
