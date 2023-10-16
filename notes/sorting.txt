@@ -53,3 +53,16 @@ else:
 ^pushes us past nodes that current is not greater than next
 
 next = current.get_next()
+
+
+================================
+def swap(first, sec):
+
+prev = first.get_previous()
+after = second.get_next()
+prev.set_next(second)
+sec.set_prev(prev)
+sec.set_next(first)
+first.set_prev(second)
+first.set_next(after)
+after.set-prev(first) 
