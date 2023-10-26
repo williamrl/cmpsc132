@@ -170,33 +170,95 @@ class DoublyLinkedList(object):
         node.set_next(None)
         node.set_previous(None)
         self.__size -= 1
-    
+
     def sequential_search(self,value):
-        """Finds the value in the list and returns the node"""
-        pass
+        """Implementation of a sequential search for a value, also returns the node"""
+        current = self.__header
+        while current != self.__trailer:
+            if current.get_element() == value:
+                return current
+            current = current.get_next()
+        return None
 
     def binary_search(self,value):
         """Implementation of a binary search for a value, also returns the node"""
         #HINT: REQUIRES THE LIST TO BE SORTED!
-        pass
-
+        if self.is_empty():
+            return None
+        else:
+            return None
+        
     def bubble_sort(self):
-        pass
-    
+        if self.is_empty():
+            return None
+        else:
+            end = None
+            while end != self.__header.get_next():
+                current = self.__header.get_next()
+                while current.get_next() != end:
+                    if current.get_element() > current.get_next().get_element():
+                        temp = current.get_element()
+                        current.set_element(current.get_next().get_element())
+                        current.get_next().set_element(temp)
+                    current = current.get_next()
+                end = current
+
     def selection_sort(self):
-        pass
+        if self.is_empty():
+            return None
+        else:
+            current = self.__header.get_next()
+            while current != self.__trailer:
+                min_node = current
+                next_node = current.get_next()
+                while next_node != self.__trailer:
+                    if next_node.get_element() < min_node.get_element():
+                        min_node = next_node
+                    next_node = next_node.get_next()
+                if min_node != current:
+                    temp = current.get_element()
+                    current.set_element(min_node.get_element())
+                    min_node.set_element(temp)
+                current = current.get_next()
     
     def insertion_sort(self):
-        pass
-    
+        if self.is_empty():
+            return None
+        else:
+            current = self.__header.get_next().get_next()
+            while current != self.__trailer:
+                temp = current.get_element()
+                previous = current.get_previous()
+                while previous != self.__header and previous.get_element() > temp:
+                    previous.set_next(Node(previous.get_element(), current, previous.get_previous()))
+                    previous = previous.get_previous()
+                    previous.get_next().get_next().set_previous(previous.get_next())
+                    previous.get_next().set_previous(previous)
+                previous.set_next(Node(temp, current, previous))
+                current.get_next().set_previous(current.get_previous())
+                current.set_previous(previous)
+                current = current.get_next()
+        
     def shell_sort(self):
-        pass
+        if self.is_empty():
+            return None
+        else:
+            gap = self.__size // 2
+            while gap > 0:
+                for i in range(gap):
+                    self.__sort_sublist(i, gap)
+                gap = gap // 2
     
     def merge_sort(self):
-        pass
+        if self.is_empty():
+            return
+        self.__header.set_next(self.__merge_sort(self.__header.get_next()))
+        self.__trailer.set_previous(self.get_last())
     
     def quick_sort(self):
-        pass
+        if self.is_empty():
+            return
+        self.__quick_sort(self.__header.get_next(), self.__trailer.get_previous())
 
 """**Task 1 (25 points)**: Implement a sequential search and show the implementation works."""
 
@@ -207,9 +269,18 @@ for i in range(1,21,2):
     dL.add_last(Node(i))
 print(dL)
 
-#The code below is broken - make it work
+node5 = dL.sequential_search(5)
+print(node5)
+
 node12 = dL.sequential_search(12)
 print(node12)
+
+#The code below is broken - make it work
+node12 = dL.sequential_search(12)
+if node12 is not None:
+    print(node12)
+else:
+    print("Node not found")
 
 """**Task 2 (25 points)**: A Faster Search
 
